@@ -4,7 +4,6 @@
 import os, sys
 import time
 import atexit
-import webbrowser
 import threading
 
 threading.stack_size(64*1024)
@@ -90,6 +89,7 @@ def main():
 
     if has_desktop and config.get(["modules", "launcher", "popup_webui"], 1) == 1:
         host_port = config.get(["modules", "launcher", "control_port"], 8085)
+        import webbrowser
         webbrowser.open("http://127.0.0.1:%s/" % host_port)
 
     update.start()
